@@ -48,10 +48,9 @@ scc:
 
 
 genLicense:
-  variables:
-    CODE_COMPILE_ARCH: 'EAGLE_ANDES'
-    COV_PF_CATALOG: 'BLE'
   stage: genLicense
+  tags:
+    - LINUX
   before_script:
   script:
     - date
@@ -63,6 +62,7 @@ genLicense:
     - "no_license_list_gen.txt"
     - "mismatch_license_file_gen.txt"
   when: always
+
 
 
 checkLicense:
