@@ -1,5 +1,5 @@
 /********************************************************************************************************
- * @file     tlk_risc.h
+ * @file     tlk_riscv.h
  *
  * @brief    This is the header file for BLE SDK
  *

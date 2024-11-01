@@ -48,10 +48,9 @@ scc:
 
 
 genLicense:
-  variables:
-    CODE_COMPILE_ARCH: 'EAGLE_ANDES'
-    COV_PF_CATALOG: 'BLE'
   stage: genLicense
+  tags:
+    - LINUX
   before_script:
   script:
     - date
@@ -63,6 +62,7 @@ genLicense:
     - "no_license_list_gen.txt"
     - "mismatch_license_file_gen.txt"
   when: always
+
 
 
 checkLicense:
@@ -90,11 +90,11 @@ checkLicense:
 
 build_TelinkIoTStudio:
   variables:
-    ECLIPSE_PROJECT_PATH: './tl_ble_sdk/build/TL721X'
-    ECLIPSE_PROJECT_NAME: 'TL_BLE_SDK_721X'
-    ECLIPSE_BUILD_TARGET: 'acl_connection_demo'            #Use code is more convenient than MACRO when multiple targets
+    ECLIPSE_PROJECT_PATH: './tl_2.4g_sdk/build/TL321X'
+    ECLIPSE_PROJECT_NAME: 'TL_2.4G_SDK_321X'
+    ECLIPSE_BUILD_TARGET: '2p4g_gen_fsk_demo'            #Use code is more convenient than MACRO when multiple targets
     #IDE: "TelinkIDE" #[build_all]
-    #PROJECT: "B95"  #[build_all]
+    #PROJECT: "B96"  #[build_all]
     #SKIP_MODULE: "feture_demo" #[build_all]
   stage: build_TelinkIoTStudio
   tags:
@@ -106,87 +106,15 @@ build_TelinkIoTStudio:
     - echo $ECLIPSE_PROJECT_PATH --- $ECLIPSE_PROJECT_NAME/$ECLIPSE_BUILD_TARGET
     #- compile_project_all_modules.sh $IDE $PROJECT #[build_all] This cmd can trigger build all targets in project configuration
     - $TELINK_IDE_BUILD  -data ${CI_PIPELINE_ID}_WS  -import $ECLIPSE_PROJECT_PATH -cleanBuild $ECLIPSE_PROJECT_NAME/$ECLIPSE_BUILD_TARGET   #acl_connection_demo
-    - $TELINK_IDE_BUILD  -data ${CI_PIPELINE_ID}_WS  -import $ECLIPSE_PROJECT_PATH -cleanBuild $ECLIPSE_PROJECT_NAME/acl_central_demo
-    - $TELINK_IDE_BUILD  -data ${CI_PIPELINE_ID}_WS  -import $ECLIPSE_PROJECT_PATH -cleanBuild $ECLIPSE_PROJECT_NAME/acl_peripheral_demo
+    - $TELINK_IDE_BUILD  -data ${CI_PIPELINE_ID}_WS  -import $ECLIPSE_PROJECT_PATH -cleanBuild $ECLIPSE_PROJECT_NAME/2p4g_tpll_demo
     - date
 
   artifacts:
     paths:
-    - "tl_ble_sdk/build/TL721X/**/*.lst"
-    - "tl_ble_sdk/build/TL721X/**/*.bin"
+    - "tl_2.4g_sdk/build/TL321X/**/*.lst"
+    - "tl_2.4g_sdk/build/TL321X/**/*.bin"
   when: always
-  
-  variables:
-    ECLIPSE_PROJECT_PATH: './tl_ble_sdk/build/TL321X'
-    ECLIPSE_PROJECT_NAME: 'TL_BLE_SDK_321X'
-    ECLIPSE_BUILD_TARGET: 'acl_connection_demo'            #Use code is more convenient than MACRO when multiple targets
-    #IDE: "TelinkIDE" #[build_all]
-    #PROJECT: "B95"  #[build_all]
-    #SKIP_MODULE: "feture_demo" #[build_all]
-  stage: build_TelinkIoTStudio
-  tags:
-    - TELINKIDE_LINUX
-  before_script:
-  script:
-    - date
-    - echo "--------------- Will build Demo -----------------"
-    - echo $ECLIPSE_PROJECT_PATH --- $ECLIPSE_PROJECT_NAME/$ECLIPSE_BUILD_TARGET
-    #- compile_project_all_modules.sh $IDE $PROJECT #[build_all] This cmd can trigger build all targets in project configuration
-    - $TELINK_IDE_BUILD  -data ${CI_PIPELINE_ID}_WS  -import $ECLIPSE_PROJECT_PATH -cleanBuild $ECLIPSE_PROJECT_NAME/$ECLIPSE_BUILD_TARGET   #acl_connection_demo
-    - $TELINK_IDE_BUILD  -data ${CI_PIPELINE_ID}_WS  -import $ECLIPSE_PROJECT_PATH -cleanBuild $ECLIPSE_PROJECT_NAME/acl_central_demo
-    - $TELINK_IDE_BUILD  -data ${CI_PIPELINE_ID}_WS  -import $ECLIPSE_PROJECT_PATH -cleanBuild $ECLIPSE_PROJECT_NAME/acl_peripheral_demo
-    - date
 
-  artifacts:
-    paths:
-    - "tl_ble_sdk/build/TL321X/**/*.lst"
-    - "tl_ble_sdk/build/TL321X/**/*.bin"
-  when: always
- 
-
-build_Andes:
-  variables:
-    ECLIPSE_PROJECT_PATH: './tl_ble_sdk/build/B91'
-    ECLIPSE_PROJECT_NAME: 'B91_ble_multi_conn_sdk'
-    ECLIPSE_BUILD_TARGET: 'acl_connection_demo'            #Use code is more convenient than MACRO when multiple targets
-    #IDE: "TelinkIDE" #[build_all]
-    #PROJECT: "B92"  #[build_all]
-    #SKIP_MODULE: "feture_demo" #[build_all]
-  stage: build_Andes
-  tags:
-    - TELINKIDE_LINUX
-  before_script:
-  script:
-    - date
-    - echo "--------------- Will build Demo -----------------"
-    - echo $ECLIPSE_PROJECT_PATH --- $ECLIPSE_PROJECT_NAME/$ECLIPSE_BUILD_TARGET
-    #- chmod 777 ./tl_ble_sdk/tl_check_fw.bat   # Linux do not support bat
-    #- compile_project_all_modules.sh $IDE $PROJECT #[build_all] This cmd can trigger build all targets in project configuration
-    - $ANDESRISCV_ECLIPSE_BUILD  -data ${CI_PIPELINE_ID}_WS  -import $ECLIPSE_PROJECT_PATH -cleanBuild $ECLIPSE_PROJECT_NAME/$ECLIPSE_BUILD_TARGET   #acl_connection_demo
-    - $ANDESRISCV_ECLIPSE_BUILD  -data ${CI_PIPELINE_ID}_WS  -import $ECLIPSE_PROJECT_PATH -cleanBuild $ECLIPSE_PROJECT_NAME/acl_central_demo
-    - $ANDESRISCV_ECLIPSE_BUILD  -data ${CI_PIPELINE_ID}_WS  -import $ECLIPSE_PROJECT_PATH -cleanBuild $ECLIPSE_PROJECT_NAME/acl_peripheral_demo
-# feature build script, this YAML version cannot use target(&) and reference(*) semantics
-#     - MACRO=FEATURE_TEST_MODE
-#     - MACRO_VAL=TEST_LL_MD
-#     - MACRO_PATH=./b92_ble_multiconn_sdk/vendor/feature_demo/feature_config.h
-#     - sed  -i "/#define\s\+${MACRO}/c#define ${MACRO}\t\t${MACRO_VAL}" $MACRO_PATH
-#     - $TELINK_IDE_BUILD  -data ${CI_PIPELINE_ID}_WS  -import $ECLIPSE_PROJECT_PATH -cleanBuild $ECLIPSE_PROJECT_NAME/feature_demo
-#     - mv $ECLIPSE_PROJECT_PATH/feature_demo/feature_demo.bin    $ECLIPSE_PROJECT_PATH/feature_demo/$MACRO_VAL.bin
-#     - mv $ECLIPSE_PROJECT_PATH/feature_demo/feature_demo.lst    $ECLIPSE_PROJECT_PATH/feature_demo/$MACRO_VAL.lst
-#     
-#     - MACRO=FEATURE_TEST_MODE
-#     - MACRO_VAL=TEST_OTA
-#     - MACRO_PATH=./b92_ble_multiconn_sdk/vendor/feature_demo/feature_config.h
-#     - sed  -i "/#define\s\+${MACRO}/c#define ${MACRO}\t\t${MACRO_VAL}" $MACRO_PATH
-#     - $TELINK_IDE_BUILD  -data ${CI_PIPELINE_ID}_WS  -import $ECLIPSE_PROJECT_PATH -cleanBuild $ECLIPSE_PROJECT_NAME/feature_demo
-#     - mv $ECLIPSE_PROJECT_PATH/feature_demo/feature_demo.bin    $ECLIPSE_PROJECT_PATH/feature_demo/$MACRO_VAL.bin
-#     - mv $ECLIPSE_PROJECT_PATH/feature_demo/feature_demo.lst    $ECLIPSE_PROJECT_PATH/feature_demo/$MACRO_VAL.lst
-    - date
-  artifacts:
-    paths:
-    - "tl_ble_sdk/build/B91/**/objdump.txt"
-    - "tl_ble_sdk/build/B91/**/*.bin"
-  when: manual
 
 oss:
   tags:
