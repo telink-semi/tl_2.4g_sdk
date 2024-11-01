@@ -1,6 +1,7 @@
 stages:
   - checktab
   - scc
+  - genLicense
   - checkLicense
   - build_TelinkIoTStudio
   - build_Andes
@@ -44,6 +45,24 @@ scc:
     paths:
     - scc.txt
   when: always
+
+
+genLicense:
+  variables:
+    CODE_COMPILE_ARCH: 'EAGLE_ANDES'
+    COV_PF_CATALOG: 'BLE'
+  stage: genLicense
+  before_script:
+  script:
+    - date
+    - generat_license_list
+    - date
+  artifacts:
+    paths:
+    - "license_list_gen.txt"
+    - "no_license_list_gen.txt"
+    - "mismatch_license_file_gen.txt"
+  when: manual
 
 
 checkLicense:
