@@ -37,7 +37,7 @@ extern "C" {
 #define GEN_FSK_TX                  5
 #define GEN_FSK_RX                  6
 
-#define GEN_FSK_MODE                GEN_FSK_SRX
+#define GEN_FSK_MODE                GEN_FSK_RX
 
 
 /* Flash Protection:

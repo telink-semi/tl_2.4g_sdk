@@ -468,7 +468,7 @@ extern void gen_fsk_tx_buffer_set(unsigned char tx_buffer_num, unsigned short tx
  * @param[in] payload_length     the length of payload to send.
  * @return    none.
  */
-_attribute_ram_code_sec_noinline_ unsigned int gen_fsk_write_payload(unsigned char *tx_buffer, const unsigned char *payload, unsigned char payload_length);
+_attribute_ram_code_sec_noinline_ unsigned int gen_fsk_write_payload(unsigned char *tx_buffer, const unsigned char *payload, unsigned int payload_length);
 
 /**
  * @brief      This function determines whether the result of RX CRC check is ok.

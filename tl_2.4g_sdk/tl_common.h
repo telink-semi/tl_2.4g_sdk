@@ -41,24 +41,10 @@
 #include "vendor/common/user_config.h"
 #include "vendor/common/app_common.h"
 #include "vendor/common/ble_flash.h"
-#include "vendor/common/blt_fw_sign.h"
 #include "vendor/common/blt_led.h"
-#include "vendor/common/blt_soft_timer.h"
-//#include "vendor/common/custom_pair.h"
-//#include "vendor/common/device_manage.h"
-//#include "vendor/common/simple_sdp.h"
-#include "vendor/common/flash_fw_check.h"
 #include "vendor/common/flash_prot.h"
 #include "vendor/common/tlkapi_debug.h"
-//#include "vendor/common/hci_transport/hci_tr_def.h"
 #include "vendor/common/battery_check.h"
-//#include "vendor/common/emi_test.h"
 #include "gpio_default.h"
-
-
-#include "application/app/usbkb.h"
-#include "application/app/usbmouse.h"
-#include "application/keyboard/keyboard.h"
-#include "application/usbstd/usbkeycode.h"
 
 #endif /* TL_COMMON_H_ */

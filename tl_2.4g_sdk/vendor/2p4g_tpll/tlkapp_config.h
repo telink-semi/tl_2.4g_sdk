@@ -44,7 +44,7 @@ extern "C" {
  *    be directly used on user's mass production application without any change. User should refer to sample code, understand the
  *    principles and methods, then change and implement a more appropriate mechanism according to their application if needed.
  */
-#define APP_FLASH_PROTECTION_ENABLE                 0
+#define APP_FLASH_PROTECTION_ENABLE                 1
 
 /////////////////////// Board Select Configuration ///////////////////////////////
 #if (MCU_CORE_TYPE == MCU_CORE_B91)

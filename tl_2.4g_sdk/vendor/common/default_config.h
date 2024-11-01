@@ -103,8 +103,8 @@
 #define ACL_CENTRAL_SMP_ENABLE                      0
 #endif
 
-#ifndef BLE_MASTER_SIMPLE_SDP_ENABLE
-#define BLE_MASTER_SIMPLE_SDP_ENABLE                0
+#ifndef ACL_CENTRAL_SIMPLE_SDP_ENABLE
+#define ACL_CENTRAL_SIMPLE_SDP_ENABLE                0
 #endif
 
 #ifndef CENTRAL_CONNECT_PERIPHR_MAC_FILTER_EN

@@ -86,16 +86,6 @@
 			<locationURI>copy_PARENT/3rd-party</locationURI>
 		</link>
 		<link>
-			<name>algorithm</name>
-			<type>2</type>
-			<locationURI>copy_PARENT/algorithm</locationURI>
-		</link>
-		<link>
-			<name>application</name>
-			<type>2</type>
-			<locationURI>copy_PARENT/application</locationURI>
-		</link>
-		<link>
 			<name>boot</name>
 			<type>2</type>
 			<locationURI>copy_PARENT/boot</locationURI>

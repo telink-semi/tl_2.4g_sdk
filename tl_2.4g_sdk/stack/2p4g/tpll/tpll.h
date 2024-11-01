@@ -499,7 +499,7 @@ void TPLL_Pid_Reset_Disable(void);
  * @retval  TPLL_ERROR_INVALID_LENGTH        If the payload length was invalid (zero or larger than the allowed
  * maximum).
  */
-uint32_t TPLL_WriteTxPayload(unsigned char pipe_id,unsigned char *ptx_buffer, const unsigned char *tx_pload, unsigned char length);
+uint32_t TPLL_WriteTxPayload(unsigned char pipe_id,unsigned char *ptx_buffer, const unsigned char *tx_pload, unsigned int length);
 
 
 /**

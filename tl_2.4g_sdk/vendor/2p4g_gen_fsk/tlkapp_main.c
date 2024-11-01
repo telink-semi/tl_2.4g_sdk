@@ -146,11 +146,6 @@ __INLINE void blc_app_system_init(void)
  */
 _attribute_ram_code_ int main(void)
 {
-    /* this function must called before "sys_init()" when:
-     * (1). For all IC: using 32K RC for power management,
-       (2). For B91 only: even no power management */
-    blc_pm_select_internal_32k_crystal();
-
     blc_app_system_init();
 
     /* detect if MCU is wake_up from deep retention mode */
