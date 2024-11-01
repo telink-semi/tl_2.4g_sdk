@@ -62,7 +62,7 @@ genLicense:
     - "license_list_gen.txt"
     - "no_license_list_gen.txt"
     - "mismatch_license_file_gen.txt"
-  when: manual
+  when: always
 
 
 checkLicense:
