@@ -49,8 +49,8 @@
 ./tl_2.4g_sdk/vendor/2p4g_gen_fsk/tlkapp_rx.c		TELINK_APACHE
 ./tl_2.4g_sdk/vendor/2p4g_tpll/tlkapp_prx.c		TELINK_APACHE
 ./tl_2.4g_sdk/vendor/2p4g_tpll/tlkapp_config.h		TELINK_APACHE
+./tl_2.4g_sdk/vendor/2p4g_tpll/tlkapp_main.c		TELINK_APACHE
 ./tl_2.4g_sdk/vendor/2p4g_tpll/tlkapp_ptx.c		TELINK_APACHE
-./tl_2.4g_sdk/vendor/2p4g_tpll/tlkmain.c		TELINK_APACHE
 ./tl_2.4g_sdk/vendor/2p4g_tpll/tlkapp_interrupt.c		TELINK_APACHE
 ./tl_2.4g_sdk/config.h		TELINK_APACHE
 ./tl_2.4g_sdk/proj_lib/firmware_encrypt.h		TELINK_APACHE
