@@ -14,7 +14,7 @@
 
   
 ### Note
-   * TL721X and TL321X do not support USB debug logs currently.
+   * TL321X do not support USB debug logs currently.
 
 ### Bug Fixes
    * N/A
@@ -67,7 +67,7 @@
   - C1T335A20_V1.0
   
 ### Note
-   * TL721X/TL321X当前不支持USB调试log。
+   * TL321X当前不支持USB调试log。
 
 ### Bug Fixes
    * N/A
