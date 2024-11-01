@@ -90,7 +90,7 @@ checkLicense:
 
 build_TelinkIoTStudio:
   variables:
-    ECLIPSE_PROJECT_PATH: './tl_ble_sdk/build/TL321X'
+    ECLIPSE_PROJECT_PATH: './tl_2.4g_sdk/build/TL321X'
     ECLIPSE_PROJECT_NAME: 'TL_2.4G_SDK_321X'
     ECLIPSE_BUILD_TARGET: '2p4g_gen_fsk_demo'            #Use code is more convenient than MACRO when multiple targets
     #IDE: "TelinkIDE" #[build_all]
